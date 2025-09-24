@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-learning HTML & CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .content-section {
+            display: none;
+        }
+        .active-section {
+            display: block;
+        }
+        .code-block {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .nav-item-locked {
+            pointer-events: none;
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .progress-bar {
+            transition: width 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+    <!-- Header -->
+    <header class="bg-gray-800 p-6 shadow-lg">
+        <div class="container mx-auto">
+            <h1 class="text-3xl font-bold text-center text-white">E-learning HTML & CSS</h1>
+            <div class="mt-4 bg-gray-700 h-2 rounded-full">
+                <div id="progressBar" class="bg-blue-500 h-full rounded-full progress-bar" style="width: 0%;"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto p-4 md:p-8 flex flex-col md:flex-row gap-8">
+        <!-- Sidebar Navigation -->
+        <aside class="md:w-1/4 bg-gray-800 p-4 rounded-xl shadow-lg h-fit sticky top-4">
+            <h2 class="text-xl font-semibold mb-4 text-white">Daftar Isi</h2>
+            <nav>
+                <ul class="space-y-2">
+                    <!-- HTML Module -->
+                    <li>
+                        <button class="w-full text-left p-2 rounded-lg font-semibold text-white bg-gray-700 hover:bg-gray-600 transition-colors duration-200" onclick="toggleSubmenu('html-menu')">HTML</button>
+                        <ul id="html-menu" class="ml-4 mt-2 space-y-1 hidden">
+                            <li><a href="#" id="link-html-1" class="block p-2 text-sm rounded-lg hover:bg-gray-700 transition-colors duration-200" onclick="showSection('html-1')">1. Anatomi & Struktur Dasar</a></li>
+                            <li><a href="#" id="link-html-2" class="block p-2 text-sm rounded-lg hover:bg-gray-700 transition-colors duration-200 nav-item-locked" onclick="showSection('html-2')">2. Konten H1, Paragraf, List</a></li>
+                            <li><a href="#" id="link-html-3" class="block p-2 text-sm rounded-lg hover:bg-gray-700 transition-colors duration-200 nav-item-locked" onclick="showSection('html-3')">3. Gambar & Video</a></li>
+                            <li><a href="#" id="link-html-4" class="block p-2 text-sm rounded-lg hover:bg-gray-700 transition-colors duration-200 nav-item-locked" onclick="showSection('html-4')">4. Tabel</a></li>
+                            <li><a href="#" id="link-html-5" class="block p-2 text-sm rounded-lg hover:bg-gray-700 transition-colors duration-200 nav-item-locked" onclick="showSection('html-5')">5. Semantic HTML, Div, Class & ID</a></li>
+                        </ul>
+                    </li>
+                    <!-- CSS Module -->
+                    <li>
+                        <button class="w-full text-left p-2 rounded-lg font-semibold text-white bg-gray-700 hover:bg-gray-600 transition-colors duration-200" onclick="toggleSubmenu('css-menu')">CSS</button>
+                        <ul id="css-menu" class="ml-4 mt-2 space-y-1 hidden">
+                            <li><a href="#" id="link-css-1" class="block p-2 text-sm rounded-lg hover:bg-gray-700 transition-colors duration-200 nav-item-locked" onclick="showSection('css-1')">1. Selektor, Warna & Teks</a></li>
+                            <li><a href="#" id="link-css-2" class="block p-2 text-sm rounded-lg hover:bg-gray-700 transition-colors duration-200 nav-item-locked" onclick="showSection('css-2')">2. Box Model</a></li>
+                            <li><a href="#" id="link-css-3" class="block p-2 text-sm rounded-lg hover:bg-gray-700 transition-colors duration-200 nav-item-locked" onclick="showSection('css-3')">3. Display, Flexbox, Grid</a></li>
+                            <li><a href="#" id="link-css-4" class="block p-2 text-sm rounded-lg hover:bg-gray-700 transition-colors duration-200 nav-item-locked" onclick="showSection('css-4')">4. Responsif, Transisi, Animasi</a></li>
+                            <li><a href="#" id="link-css-5" class="block p-2 text-sm rounded-lg hover:bg-gray-700 transition-colors duration-200 nav-item-locked" onclick="showSection('css-5')">5. Pseudo-Class & Custom Properties</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Content Display Area -->
+        <div id="content-display" class="md:w-3/4 bg-gray-800 p-6 rounded-xl shadow-lg">
+            <!-- HTML Section 1 -->
+            <section id="html-1" class="content-section active-section" data-next-section="html-2" data-completed="false">
+                <h2 class="text-2xl font-bold mb-4 text-white">1. Anatomi dan Struktur Dasar HTML</h2>
+                <div class="flex justify-center my-6">
+                  
+                </div>
+                <p class="mb-4">Setiap halaman web memiliki anatomi dasar yang terdiri dari tag-tag wajib yang membentuk struktur utamanya. Memahami anatomi ini sangat penting sebagai fondasi untuk membangun halaman web.</p>
+                <ul class="list-disc list-inside space-y-2 mb-6">
+                    <li><b><code>&lt;!DOCTYPE html&gt;</code>:</b> Ini bukan tag HTML, melainkan sebuah deklarasi yang memberitahu browser bahwa dokumen ini adalah dokumen HTML5. Deklarasi ini harus selalu diletakkan di baris pertama kode.</li>
+                    <li><b><code>&lt;html&gt;</code>:</b> Ini adalah elemen akar yang membungkus seluruh konten di halaman HTML. Semua elemen HTML lainnya, kecuali deklarasi DOCTYPE, harus berada di dalam tag ini.</li>
+                    <li><b><code>&lt;head&gt;</code>:</b> Bagian ini digunakan untuk menyimpan metadata tentang halaman, seperti judul halaman, deskripsi, atau link ke file CSS dan JavaScript. Konten di dalam tag ini tidak akan terlihat oleh pengguna di browser.</li>
+                    <li><b><code>&lt;body&gt;</code>:</b> Bagian utama di mana semua konten yang terlihat oleh pengguna, seperti teks, gambar, video, dan link, ditempatkan.</li>
+                </ul>
+                <h3 class="text-xl font-semibold mb-2 text-white">Contoh Penggunaan:</h3>
+                <p class="mb-2">Berikut adalah contoh struktur dasar HTML yang benar dan lengkap:</p>
+                <pre class="code-block mb-6"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="id"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Halaman Pertamaku&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Selamat Datang di Webku!&lt;/h1&gt;
+    &lt;p&gt;Ini adalah paragraf pertama di halaman web yang saya buat.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+                <!-- Latihan Soal -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-inner">
+                    <h4 class="text-lg font-bold mb-4 text-white">Soal Latihan:</h4>
+                    <form onsubmit="checkAnswer(event, 'html-1', 1)">
+                        <div class="mb-4">
+                            <p class="mb-2">1. Apa fungsi dari tag <code>&lt;head&gt;</code> dalam struktur HTML?</p>
+                            <textarea id="answer-html-1-1" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="3"></textarea>
+                            <div id="feedback-html-1-1" class="mt-2 font-bold"></div>
+                        </div>
+                        <div class="mb-4">
+                            <p class="mb-2">2. Tuliskan struktur dasar HTML lengkap dengan semua tag wajibnya.</p>
+                            <textarea id="answer-html-1-2" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="5"></textarea>
+                            <div id="feedback-html-1-2" class="mt-2 font-bold"></div>
+                        </div>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200">Cek Jawaban</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- HTML Section 2 -->
+            <section id="html-2" class="content-section" data-next-section="html-3" data-completed="false">
+                <h2 class="text-2xl font-bold mb-4 text-white">2. Konten H1, Paragraf, dan List</h2>
+                <div class="flex justify-center my-6">
+                  
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-white">Heading (`&lt;h1&gt;` hingga `&lt;h6&gt;`)</h3>
+                <p class="mb-4">Tag heading digunakan untuk membuat judul dan subjudul. `&lt;h1&gt;` adalah yang paling penting (digunakan untuk judul utama), dan `&lt;h6&gt;` adalah yang paling tidak penting. Penggunaannya membantu struktur halaman dan penting untuk SEO.</p>
+                <h3 class="text-xl font-semibold mb-2 text-white">Paragraf (`&lt;p&gt;`)</h3>
+                <p class="mb-4">Tag `&lt;p&gt;` digunakan untuk menyusun blok teks. Browser secara otomatis menambahkan margin di atas dan bawah tag ini untuk membedakannya dari elemen lain.</p>
+                <h3 class="text-xl font-semibold mb-2 text-white">List (`&lt;ul&gt;` dan `&lt;ol&gt;`)</h3>
+                <p class="mb-4">Daftar digunakan untuk mengorganisir informasi.
+                <ul class="list-disc list-inside space-y-2 mb-6">
+                    <li><b>`&lt;ul&gt;`</b> (unordered list) digunakan untuk daftar yang tidak memiliki urutan, ditandai dengan bullet point.</li>
+                    <li><b>`&lt;ol&gt;`</b> (ordered list) digunakan untuk daftar yang berurutan (misalnya, langkah-langkah dalam resep), ditandai dengan angka atau huruf.</li>
+                </ul>
+                <h3 class="text-xl font-semibold mb-2 text-white">Contoh Penggunaan:</h3>
+                <pre class="code-block mb-6"><code>&lt;h1&gt;Resep Kue Cokelat&lt;/h1&gt;
+&lt;p&gt;Berikut adalah bahan-bahan yang Anda perlukan:&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;Tepung terigu&lt;/li&gt;
+    &lt;li&gt;Cokelat bubuk&lt;/li&gt;
+    &lt;li&gt;Telur&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Langkah-langkah Membuatnya&lt;/h2&gt;
+&lt;ol&gt;
+    &lt;li&gt;Campurkan semua bahan kering.&lt;/li&gt;
+    &lt;li&gt;Tambahkan telur dan aduk hingga merata.&lt;/li&gt;
+    &lt;li&gt;Panggang di oven selama 30 menit.&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                <!-- Latihan Soal -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-inner mt-6">
+                    <h4 class="text-lg font-bold mb-4 text-white">Soal Latihan:</h4>
+                    <form onsubmit="checkAnswer(event, 'html-2', 1)">
+                        <div class="mb-4">
+                            <p class="mb-2">1. Bagaimana cara membuat judul utama dengan HTML?</p>
+                            <textarea id="answer-html-2-1" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="3"></textarea>
+                            <div id="feedback-html-2-1" class="mt-2 font-bold"></div>
+                        </div>
+                        <div class="mb-4">
+                            <p class="mb-2">2. Buatlah daftar berurutan untuk resep kopi, minimal 3 langkah.</p>
+                            <textarea id="answer-html-2-2" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="5"></textarea>
+                            <div id="feedback-html-2-2" class="mt-2 font-bold"></div>
+                        </div>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200">Cek Jawaban</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- HTML Section 3 -->
+            <section id="html-3" class="content-section" data-next-section="html-4" data-completed="false">
+                <h2 class="text-2xl font-bold mb-4 text-white">3. Gambar dan Video</h2>
+                <div class="flex justify-center my-6">
+                  
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-white">Gambar (`&lt;img&gt;`)</h3>
+                <p class="mb-4">Tag <code>&lt;img&gt;</code> digunakan untuk menyematkan gambar. Tag ini tidak memiliki tag penutup. Atribut terpenting adalah `src` (sumber gambar) dan `alt` (teks alternatif).</p>
+                <ul class="list-disc list-inside space-y-2 mb-6">
+                    <li><b>`src`:</b> Menentukan path ke file gambar.</li>
+                    <li><b>`alt`:</b> Memberikan deskripsi teks untuk gambar. Ini sangat penting untuk aksesibilitas (untuk pembaca layar) dan SEO (jika gambar tidak dapat dimuat).</li>
+                </ul>
+                <h3 class="text-xl font-semibold mb-2 text-white">Video (`&lt;video&gt;`)</h3>
+                <p class="mb-4">Tag `&lt;video&gt;` digunakan untuk menyematkan video. Anda dapat menyertakan atribut seperti `width`, `height`, dan `controls` untuk memanipulasi tampilannya.</p>
+                <ul class="list-disc list-inside space-y-2 mb-6">
+                    <li><b>`src`:</b> Menentukan path ke file video.</li>
+                    <li><b>`controls`:</b> Menambahkan kontrol pemutaran seperti play/pause dan volume.</li>
+                    <li><b>`autoplay`:</b> Memulai pemutaran video secara otomatis saat halaman dimuat.</li>
+                </ul>
+                <h3 class="text-xl font-semibold mb-2 text-white">Contoh Penggunaan:</h3>
+                <pre class="code-block mb-6"><code>&lt;img src="https://placehold.co/600x400/000000/FFFFFF?text=Contoh+Gambar" alt="Deskripsi gambar contoh"&gt;
+
+&lt;video src="belajar.mp4" width="640" height="360" controls&gt;
+    Browser Anda tidak mendukung tag video.
+&lt;/video&gt;</code></pre>
+                <!-- Latihan Soal -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-inner mt-6">
+                    <h4 class="text-lg font-bold mb-4 text-white">Soal Latihan:</h4>
+                    <form onsubmit="checkAnswer(event, 'html-3', 1)">
+                        <div class="mb-4">
+                            <p class="mb-2">1. Jelaskan fungsi dari atribut `alt` pada tag `&lt;img&gt;`.</p>
+                            <textarea id="answer-html-3-1" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="3"></textarea>
+                            <div id="feedback-html-3-1" class="mt-2 font-bold"></div>
+                        </div>
+                        <div class="mb-4">
+                            <p class="mb-2">2. Buatlah tag video yang menyematkan file `belajar.mp4` dengan lebar 800px dan kontrol.</p>
+                            <textarea id="answer-html-3-2" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="5"></textarea>
+                            <div id="feedback-html-3-2" class="mt-2 font-bold"></div>
+                        </div>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200">Cek Jawaban</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- HTML Section 4 -->
+            <section id="html-4" class="content-section" data-next-section="html-5" data-completed="false">
+                <h2 class="text-2xl font-bold mb-4 text-white">4. Tabel (`&lt;table&gt;`)</h2>
+                <div class="flex justify-center my-6">
+                  
+                </div>
+                <p class="mb-4">Tabel digunakan untuk menampilkan data dalam format baris dan kolom. Struktur tabel yang semantik terdiri dari beberapa elemen utama:</p>
+                <ul class="list-disc list-inside space-y-2 mb-6">
+                    <li><b>`&lt;table&gt;`:</b> Elemen utama yang membungkus seluruh tabel.</li>
+                    <li><b>`&lt;thead&gt;`:</b> Mengelompokkan baris header (judul kolom).</li>
+                    <li><b>`&lt;tbody&gt;`:</b> Mengelompokkan baris data utama.</li>
+                    <li><b>`&lt;tr&gt;`:</b> Mendefinisikan baris dalam tabel.</li>
+                    <li><b>`&lt;th&gt;`:</b> Mendefinisikan sel header, biasanya diletakkan di dalam `&lt;thead&gt;`.</li>
+                    <li><b>`&lt;td&gt;`:</b> Mendefinisikan sel data.</li>
+                </ul>
+                <h3 class="text-xl font-semibold mb-2 text-white">Contoh Penggunaan:</h3>
+                <pre class="code-block mb-6"><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Nama Produk&lt;/th&gt;
+            &lt;th&gt;Harga&lt;/th&gt;
+            &lt;th&gt;Stok&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Laptop&lt;/td&gt;
+            &lt;td&gt;$1200&lt;/td&gt;
+            &lt;td&gt;50&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Mouse&lt;/td&gt;
+            &lt;td&gt;$25&lt;/td&gt;
+            &lt;td&gt;200&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                <!-- Latihan Soal -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-inner mt-6">
+                    <h4 class="text-lg font-bold mb-4 text-white">Soal Latihan:</h4>
+                    <form onsubmit="checkAnswer(event, 'html-4', 1)">
+                        <div class="mb-4">
+                            <p class="mb-2">1. Bagaimana cara membuat baris baru dalam tabel HTML?</p>
+                            <textarea id="answer-html-4-1" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="3"></textarea>
+                            <div id="feedback-html-4-1" class="mt-2 font-bold"></div>
+                        </div>
+                        <div class="mb-4">
+                            <p class="mb-2">2. Buatlah tabel dengan dua baris data dan tiga kolom: "Nama Produk," "Harga," dan "Stok."</p>
+                            <textarea id="answer-html-4-2" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="5"></textarea>
+                            <div id="feedback-html-4-2" class="mt-2 font-bold"></div>
+                        </div>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200">Cek Jawaban</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- HTML Section 5 -->
+            <section id="html-5" class="content-section" data-next-section="css-1" data-completed="false">
+                <h2 class="text-2xl font-bold mb-4 text-white">5. Semantic HTML, `&lt;div&gt;`, `&lt;span&gt;`, Atribut `class` dan `id`</h2>
+                <div class="flex justify-center my-6">
+                  
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-white">Semantic HTML</h3>
+                <p class="mb-4">Tag semantik memberikan makna pada kontennya. Contoh: `&lt;header&gt;` untuk bagian kepala, `&lt;nav&gt;` untuk navigasi, `&lt;main&gt;` untuk konten utama, dan `&lt;footer&gt;` untuk bagian bawah halaman. Penggunaan tag ini penting untuk aksesibilitas dan SEO.</p>
+                <h3 class="text-xl font-semibold mb-2 text-white">`&lt;div&gt;` dan `&lt;span&gt;`</h3>
+                <p class="mb-4">Tag `&lt;div&gt;` (block-level) dan `&lt;span&gt;` (inline) adalah tag non-semantik. Mereka tidak memberikan makna khusus, melainkan berfungsi sebagai wadah untuk mengelompokkan elemen lain, biasanya untuk keperluan styling atau JavaScript.</p>
+                <h3 class="text-xl font-semibold mb-2 text-white">Atribut `class` dan `id`</h3>
+                <p class="mb-4">Atribut `class` dan `id` digunakan sebagai pengenal untuk menargetkan elemen dengan CSS atau JavaScript. **`class`** dapat digunakan oleh beberapa elemen, sementara **`id`** harus unik untuk setiap elemen.</p>
+                <h3 class="text-xl font-semibold mb-2 text-white">Contoh Penggunaan:</h3>
+                <pre class="code-block mb-6"><code>&lt;header&gt;
+    &lt;nav&gt;
+        &lt;a href="/"&gt;Beranda&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;div class="kontainer-utama"&gt;
+    &lt;p&gt;Selamat datang, &lt;span class="nama-pengguna" id="user-name"&gt;Pengguna&lt;/span&gt;!&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;&copy; 2024 Aplikasi E-learning&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+                <!-- Latihan Soal -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-inner mt-6">
+                    <h4 class="text-lg font-bold mb-4 text-white">Soal Latihan:</h4>
+                    <form onsubmit="checkAnswer(event, 'html-5', 1)">
+                        <div class="mb-4">
+                            <p class="mb-2">1. Apa perbedaan utama antara `&lt;div&gt;` dan `&lt;section&gt;` dari segi semantik?</p>
+                            <textarea id="answer-html-5-1" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="3"></textarea>
+                            <div id="feedback-html-5-1" class="mt-2 font-bold"></div>
+                        </div>
+                        <div class="mb-4">
+                            <p class="mb-2">2. Mengapa penting untuk menggunakan atribut `class` dan `id`?</p>
+                            <textarea id="answer-html-5-2" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="3"></textarea>
+                            <div id="feedback-html-5-2" class="mt-2 font-bold"></div>
+                        </div>
+                        <div class="mb-4">
+                            <p class="mb-2">3. Buatlah sebuah elemen `&lt;div&gt;` dengan `id` "profil-pengguna" dan di dalamnya terdapat `&lt;p&gt;` dengan `class` "nama-lengkap".</p>
+                            <textarea id="answer-html-5-3" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="5"></textarea>
+                            <div id="feedback-html-5-3" class="mt-2 font-bold"></div>
+                        </div>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200">Cek Jawaban</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- CSS Section 1 -->
+            <section id="css-1" class="content-section" data-next-section="css-2" data-completed="false">
+                <h2 class="text-2xl font-bold mb-4 text-white">1. Selektor CSS, Properti Warna dan Teks</h2>
+                <div class="flex justify-center my-6">
+                  
+                </div>
+                <p class="mb-4">CSS (Cascading Style Sheets) digunakan untuk menata tampilan halaman web. Dasar dari CSS adalah **selektor** dan **properti**.</p>
+                <h3 class="text-xl font-semibold mb-2 text-white">Selektor</h3>
+                <p class="mb-4">Selektor adalah pola yang digunakan untuk "menemukan" dan menargetkan elemen HTML yang ingin Anda beri gaya. Ada beberapa jenis selektor:
+                <ul class="list-disc list-inside space-y-2 mb-6">
+                    <li><b>Selektor Elemen:</b> Memilih semua elemen dari jenis tertentu, contohnya `h1 { ... }`.</li>
+                    <li><b>Selektor Class:</b> Memilih semua elemen dengan atribut `class` tertentu, contohnya `.kontainer { ... }`.</li>
+                    <li><b>Selektor ID:</b> Memilih elemen dengan atribut `id` yang unik, contohnya `#header { ... }`.</li>
+                </ul>
+                <h3 class="text-xl font-semibold mb-2 text-white">Properti Warna dan Teks</h3>
+                <p class="mb-4">Properti-properti ini digunakan untuk mengubah tampilan teks dan warna.
+                <ul class="list-disc list-inside space-y-2 mb-6">
+                    <li><b>`color`:</b> Mengubah warna teks.</li>
+                    <li><b>`background-color`:</b> Mengubah warna latar belakang.</li>
+                    <li><b>`font-size`:</b> Mengubah ukuran font.</li>
+                    <li><b>`font-family`:</b> Mengubah jenis font.</li>
+                </ul>
+                <h3 class="text-xl font-semibold mb-2 text-white">Contoh Penggunaan:</h3>
+                <pre class="code-block mb-6"><code>/* Menggunakan selektor elemen */
+p {
+    color: #fca5a5; /* Warna teks merah muda */
+    font-size: 1.25rem; /* Ukuran font lebih besar */
+}
+
+/* Menggunakan selektor class */
+.highlight {
+    background-color: #fde047; /* Latar belakang kuning */
+    font-weight: bold; /* Teks tebal */
+}
+
+/* Menggunakan selektor ID */
+#judul-utama {
+    color: #60a5fa; /* Warna teks biru */
+    text-align: center; /* Teks di tengah */
+}</code></pre>
+                <!-- Latihan Soal -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-inner mt-6">
+                    <h4 class="text-lg font-bold mb-4 text-white">Soal Latihan:</h4>
+                    <form onsubmit="checkAnswer(event, 'css-1', 1)">
+                        <div class="mb-4">
+                            <p class="mb-2">1. Bagaimana cara memilih semua paragraf dan memberikan warna teks merah?</p>
+                            <textarea id="answer-css-1-1" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="3"></textarea>
+                            <div id="feedback-css-1-1" class="mt-2 font-bold"></div>
+                        </div>
+                        <div class="mb-4">
+                            <p class="mb-2">2. Buatlah selektor yang memilih elemen dengan `class` `highlight` dan berikan `background-color` kuning.</p>
+                            <textarea id="answer-css-1-2" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="3"></textarea>
+                            <div id="feedback-css-1-2" class="mt-2 font-bold"></div>
+                        </div>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200">Cek Jawaban</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- CSS Section 2 -->
+            <section id="css-2" class="content-section" data-next-section="css-3" data-completed="false">
+                <h2 class="text-2xl font-bold mb-4 text-white">2. Box Model</h2>
+                <div class="flex justify-center my-6">
+                  
+                </div>
+                <p class="mb-4">Setiap elemen HTML dianggap sebagai kotak, yang terdiri dari empat bagian utama: konten, padding, border, dan margin. Memahami model ini sangat penting untuk mengatur tata letak dan jarak antar elemen.</p>
+                <ul class="list-disc list-inside space-y-2 mb-6">
+                    <li><b>Content (Konten):</b> Area di tengah kotak, tempat teks atau gambar berada.</li>
+                    <li><b>Padding:</b> Ruang kosong di antara konten dan border. Padding berfungsi untuk memberikan "ruang bernapas" di dalam kotak.</li>
+                    <li><b>Border:</b> Garis yang mengelilingi padding dan konten. Border dapat diatur ketebalan, gaya, dan warnanya.</li>
+                    <li><b>Margin:</b> Ruang kosong di luar border, digunakan untuk memisahkan satu elemen dari elemen lainnya.</li>
+                </ul>
+                <h3 class="text-xl font-semibold mb-2 text-white">Contoh Penggunaan:</h3>
+                <pre class="code-block mb-6"><code>.kontainer {
+    background-color: #3b82f6;
+    padding: 20px; /* Ruang di dalam kotak, antara konten dan border */
+    border: 5px solid #2563eb; /* Garis pembatas kotak */
+    margin: 30px; /* Ruang di luar kotak, memisahkan dari elemen lain */
+}</code></pre>
+                <!-- Latihan Soal -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-inner mt-6">
+                    <h4 class="text-lg font-bold mb-4 text-white">Soal Latihan:</h4>
+                    <form onsubmit="checkAnswer(event, 'css-2', 1)">
+                        <div class="mb-4">
+                            <p class="mb-2">1. Jelaskan perbedaan antara padding dan margin.</p>
+                            <textarea id="answer-css-2-1" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="3"></textarea>
+                            <div id="feedback-css-2-1" class="mt-2 font-bold"></div>
+                        </div>
+                        <div class="mb-4">
+                            <p class="mb-2">2. Buatlah sebuah `class` bernama `kartu` yang memiliki padding 15px, border solid abu-abu, dan margin 20px.</p>
+                            <textarea id="answer-css-2-2" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="5"></textarea>
+                            <div id="feedback-css-2-2" class="mt-2 font-bold"></div>
+                        </div>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200">Cek Jawaban</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- CSS Section 3 -->
+            <section id="css-3" class="content-section" data-next-section="css-4" data-completed="false">
+                <h2 class="text-2xl font-bold mb-4 text-white">3. Display, Posisi, Flexbox, dan Grid</h2>
+                <div class="flex justify-center my-6">
+                  
+                </div>
+                <p class="mb-4">Properti `display` mengontrol bagaimana sebuah elemen ditampilkan. Nilai-nilai umum yang digunakan adalah `block`, `inline`, dan `flex`/`grid` untuk tata letak modern.</p>
+                <h3 class="text-xl font-semibold mb-2 text-white">Flexbox (Layout Modern)</h3>
+                <p class="mb-4">**Flexbox** (Flexible Box) adalah model tata letak satu dimensi untuk mendistribusikan ruang dan menyelaraskan item dalam sebuah kontainer. Ini sangat berguna untuk menempatkan item dalam satu baris atau satu kolom.</p>
+                <h3 class="text-xl font-semibold mb-2 text-white">Grid Layout</h3>
+                <p class="mb-4">**Grid Layout** adalah sistem tata letak dua dimensi yang dirancang untuk mengelola tata letak baris dan kolom secara bersamaan. Ini ideal untuk membuat tata letak halaman yang kompleks.</p>
+                <h3 class="text-xl font-semibold mb-2 text-white">Contoh Penggunaan:</h3>
+                <pre class="code-block mb-6"><code>/* Flexbox untuk menempatkan item di tengah */
+.flex-container {
+    display: flex;
+    justify-content: center; /* Menyusun item secara horizontal di tengah */
+    align-items: center; /* Menyusun item secara vertikal di tengah */
+    height: 200px;
+    background-color: #4a5568;
+}
+
+/* Grid untuk membuat tata letak 3 kolom */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Membagi ruang menjadi 3 kolom yang sama */
+    gap: 16px; /* Jarak antar kolom dan baris */
+}</code></pre>
+                <!-- Latihan Soal -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-inner mt-6">
+                    <h4 class="text-lg font-bold mb-4 text-white">Soal Latihan:</h4>
+                    <form onsubmit="checkAnswer(event, 'css-3', 1)">
+                        <div class="mb-4">
+                            <p class="mb-2">1. Kapan Anda harus menggunakan Flexbox, dan kapan Grid?</p>
+                            <textarea id="answer-css-3-1" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="3"></textarea>
+                            <div id="feedback-css-3-1" class="mt-2 font-bold"></div>
+                        </div>
+                        <div class="mb-4">
+                            <p class="mb-2">2. Buatlah tata letak Flexbox yang menempatkan tiga item di tengah secara horizontal dan vertikal.</p>
+                            <textarea id="answer-css-3-2" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="5"></textarea>
+                            <div id="feedback-css-3-2" class="mt-2 font-bold"></div>
+                        </div>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200">Cek Jawaban</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- CSS Section 4 -->
+            <section id="css-4" class="content-section" data-next-section="css-5" data-completed="false">
+                <h2 class="text-2xl font-bold mb-4 text-white">4. Responsif, Transisi, dan Animasi</h2>
+                <div class="flex justify-center my-6">
+                  
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-white">Responsif (`@media` Queries)</h3>
+                <p class="mb-4">Desain web responsif adalah praktik membuat website yang beradaptasi dengan ukuran layar perangkat yang berbeda. `@media` queries memungkinkan Anda menerapkan gaya CSS khusus berdasarkan kondisi, seperti lebar layar.</p>
+                <h3 class="text-xl font-semibold mb-2 text-white">Transisi dan Animasi</h3>
+                <p class="mb-4">**Transisi** digunakan untuk membuat perubahan properti CSS (misalnya, warna atau ukuran) menjadi lebih halus. **Animasi** memungkinkan Anda membuat pergerakan yang lebih kompleks dan dapat diatur melalui keyframes.</p>
+                <h3 class="text-xl font-semibold mb-2 text-white">Contoh Penggunaan:</h3>
+                <pre class="code-block mb-6"><code>/* Media Query untuk layar kecil (mobile) */
+@media screen and (max-width: 768px) {
+    body {
+        background-color: #1a202c; /* Warna latar belakang gelap untuk mobile */
+    }
+}
+
+/* Transisi halus saat tombol di-hover */
+.tombol-hover {
+    background-color: #3b82f6;
+    transition: background-color 0.3s ease;
+}
+
+.tombol-hover:hover {
+    background-color: #2563eb;
+}</code></pre>
+                <!-- Latihan Soal -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-inner mt-6">
+                    <h4 class="text-lg font-bold mb-4 text-white">Soal Latihan:</h4>
+                    <form onsubmit="checkAnswer(event, 'css-4', 1)">
+                        <div class="mb-4">
+                            <p class="mb-2">1. Apa yang dimaksud dengan desain web responsif?</p>
+                            <textarea id="answer-css-4-1" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="3"></textarea>
+                            <div id="feedback-css-4-1" class="mt-2 font-bold"></div>
+                        </div>
+                        <div class="mb-4">
+                            <p class="mb-2">2. Buatlah aturan `@media` yang mengubah warna latar belakang `&lt;body&gt;` menjadi merah saat lebar layar di bawah 768px.</p>
+                            <textarea id="answer-css-4-2" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="5"></textarea>
+                            <div id="feedback-css-4-2" class="mt-2 font-bold"></div>
+                        </div>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200">Cek Jawaban</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- CSS Section 5 -->
+            <section id="css-5" class="content-section" data-next-section="final-score" data-completed="false">
+                <h2 class="text-2xl font-bold mb-4 text-white">5. Pseudo-Class, Pseudo-Element, dan Custom Properties</h2>
+                <div class="flex justify-center my-6">
+                  
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-white">Pseudo-Class</h3>
+                <p class="mb-4">Pseudo-class digunakan untuk menyeleksi elemen berdasarkan statusnya. Contohnya, `:hover` saat kursor berada di atas elemen, atau `:first-child` untuk elemen anak pertama.</p>
+                <h3 class="text-xl font-semibold mb-2 text-white">Custom Properties (CSS Variables)</h3>
+                <p class="mb-4">Variabel CSS, atau Custom Properties, memungkinkan Anda untuk menyimpan nilai dalam satu tempat dan menggunakannya kembali di seluruh stylesheet. Ini membuat kode lebih mudah diatur dan diubah.</p>
+                <h3 class="text-xl font-semibold mb-2 text-white">Contoh Penggunaan:</h3>
+                <pre class="code-block mb-6"><code>/* Pseudo-class untuk link */
+a:hover {
+    text-decoration: underline;
+    color: #60a5fa;
+}
+
+/* Custom Properties (Variabel CSS) */
+:root {
+    --warna-utama: #10b981;
+    --lebar-kontainer: 960px;
+}
+
+.card {
+    background-color: var(--warna-utama);
+    max-width: var(--lebar-kontainer);
+}</code></pre>
+                <!-- Latihan Soal -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-inner mt-6">
+                    <h4 class="text-lg font-bold mb-4 text-white">Soal Latihan:</h4>
+                    <form onsubmit="checkAnswer(event, 'css-5', 1)">
+                        <div class="mb-4">
+                            <p class="mb-2">1. Bagaimana cara mengubah warna teks link menjadi biru saat dihover?</p>
+                            <textarea id="answer-css-5-1" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="3"></textarea>
+                            <div id="feedback-css-5-1" class="mt-2 font-bold"></div>
+                        </div>
+                        <div class="mb-4">
+                            <p class="mb-2">2. Buatlah sebuah Custom Property bernama `--lebar-konten` dan gunakan di salah satu selektor.</p>
+                            <textarea id="answer-css-5-2" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="5"></textarea>
+                            <div id="feedback-css-5-2" class="mt-2 font-bold"></div>
+                        </div>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200">Cek Jawaban</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Final Score Section -->
+            <section id="final-score" class="content-section">
+                <h2 class="text-2xl font-bold mb-4 text-white text-center">Selamat! Anda telah menyelesaikan semua bab!</h2>
+                <div class="text-center p-6 bg-gray-700 rounded-lg shadow-inner">
+                    <p class="text-xl mb-2">Total Skor Anda:</p>
+                    <p id="finalScoreDisplay" class="text-5xl font-bold text-blue-400 mb-6">0</p>
+                    <p class="mb-4">Anda dapat mengirimkan skor ini ke email Anda. Silakan masukkan nama dan email Anda di bawah.</p>
+                    <form onsubmit="sendScore(event)">
+                        <div class="mb-4">
+                            <label for="studentName" class="block text-left mb-1">Nama Lengkap:</label>
+                            <input type="text" id="studentName" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="studentEmail" class="block text-left mb-1">Email:</label>
+                            <input type="email" id="studentEmail" class="w-full p-2 rounded-lg bg-gray-600 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200">Kirim Skor</button>
+                    </form>
+                    <div id="emailMessage" class="mt-4 font-bold text-green-400"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        const sections = ['html-1', 'html-2', 'html-3', 'html-4', 'html-5', 'css-1', 'css-2', 'css-3', 'css-4', 'css-5'];
+        const totalSections = sections.length;
+        let score = 0;
+        let answeredQuestions = {}; // To track answered questions for each section
+
+        const correctAnswers = {
+            'html-1-1': ['metadata', 'judul halaman', 'link ke css'],
+            'html-1-2': ['<!DOCTYPE html>', '<html>', '<head>', '<body>'],
+            'html-2-1': ['<h1>', 'heading'],
+            'html-2-2': ['<ol>'],
+            'html-3-1': ['teks alternatif', 'deskripsi', 'aksesibilitas'],
+            'html-3-2': ['<video src="belajar.mp4" width="800" controls></video>'],
+            'html-4-1': ['<tr>'],
+            'html-4-2': ['<table>', '<thead>', '<tbody>', '<tr>', '<th>', '<td>'],
+            'html-5-1': ['semantik', 'makna', 'mengelompokkan konten'],
+            'html-5-2': ['pengenal', 'target', 'css', 'javascript', 'styling'],
+            'html-5-3': ['<div id="profil-pengguna">', '<p class="nama-lengkap">', '</p>', '</div>'],
+            'css-1-1': ['p { color: red; }'],
+            'css-1-2': ['.highlight { background-color: yellow; }'],
+            'css-2-1': ['padding', 'margin', 'border', 'ruang dalam', 'ruang luar'],
+            'css-2-2': ['.kartu { padding: 15px; border: 1px solid gray; margin: 20px; }'],
+            'css-3-1': ['flexbox', 'grid', 'satu dimensi', 'dua dimensi'],
+            'css-3-2': ['display: flex;', 'justify-content: center;', 'align-items: center;'],
+            'css-4-1': ['responsif', 'beradaptasi', 'ukuran layar'],
+            'css-4-2': ['@media screen and (max-width: 767px) { body { background-color: red; } }'],
+            'css-5-1': ['a:hover { color: blue; }'],
+            'css-5-2': ['--lebar-konten']
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('html-1');
+            updateProgressBar();
+            // Inisialisasi status soal yang dijawab untuk setiap bagian
+            sections.forEach(secId => {
+                answeredQuestions[secId] = 0;
+            });
+        });
+
+        function showSection(sectionId) {
+            // Sembunyikan semua bagian konten
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active-section');
+                section.style.display = 'none';
+            });
+            // Tampilkan bagian yang dipilih
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.add('active-section');
+                selectedSection.style.display = 'block';
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function toggleSubmenu(menuId) {
+            const submenu = document.getElementById(menuId);
+            submenu.classList.toggle('hidden');
+        }
+
+        function updateProgressBar() {
+            const completedSections = sections.filter(secId => {
+                const sectionElement = document.getElementById(secId);
+                return sectionElement && sectionElement.getAttribute('data-completed') === 'true';
+            }).length;
+            const progress = (completedSections / totalSections) * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+        }
+
+        function checkAnswer(event, sectionId, questionCount) {
+            event.preventDefault();
+            let sectionScore = 0;
+            const sectionElement = document.getElementById(sectionId);
+            let allQuestionsAnswered = true;
+
+            for (let i = 1; i <= questionCount; i++) {
+                const answerId = `${sectionId}-${i}`;
+                const textarea = document.getElementById(`answer-${answerId}`);
+                const feedbackDiv = document.getElementById(`feedback-${answerId}`);
+                const userAnswer = textarea.value.toLowerCase().trim();
+                const possibleCorrectAnswers = correctAnswers[answerId].map(ans => ans.toLowerCase().trim());
+
+                if (userAnswer === '') {
+                    allQuestionsAnswered = false;
+                    feedbackDiv.textContent = 'Jawaban tidak boleh kosong.';
+                    feedbackDiv.classList.remove('text-green-400');
+                    feedbackDiv.classList.add('text-yellow-400');
+                    continue;
+                }
+
+                let isCorrect = false;
+                if (possibleCorrectAnswers.some(correctAns => userAnswer.includes(correctAns))) {
+                    isCorrect = true;
+                }
+
+                if (isCorrect) {
+                    feedbackDiv.textContent = 'Jawaban Benar!';
+                    feedbackDiv.classList.remove('text-yellow-400', 'text-red-400');
+                    feedbackDiv.classList.add('text-green-400');
+                    sectionScore++;
+                } else {
+                    feedbackDiv.textContent = 'Jawaban Salah. Silakan coba lagi.';
+                    feedbackDiv.classList.remove('text-green-400', 'text-yellow-400');
+                    feedbackDiv.classList.add('text-red-400');
+                    allQuestionsAnswered = false; // Jika ada jawaban yang salah, tidak bisa lanjut
+                }
+            }
+
+            if (allQuestionsAnswered) {
+                // Semua soal di section ini dijawab dengan benar
+                score += sectionScore; // Tambahkan skor ke total
+                sectionElement.setAttribute('data-completed', 'true');
+                updateProgressBar();
+
+                const nextSectionId = sectionElement.getAttribute('data-next-section');
+                if (nextSectionId) {
+                    const nextLink = document.getElementById(`link-${nextSectionId}`);
+                    if (nextLink) {
+                        nextLink.classList.remove('nav-item-locked');
+                        showSection(nextSectionId);
+                    }
+                } else {
+                    showSection('final-score');
+                    document.getElementById('finalScoreDisplay').textContent = score;
+                }
+            }
+        }
+
+        function sendScore(event) {
+            event.preventDefault();
+            const studentName = document.getElementById('studentName').value;
+            const studentEmail = document.getElementById('studentEmail').value;
+            const finalScore = score;
+            const emailMessage = document.getElementById('emailMessage');
+
+            // Log data yang akan dikirim (simulasi)
+            console.log(`Simulasi pengiriman email:
+                Nama: ${studentName}
+                Email: ${studentEmail}
+                Skor: ${finalScore}
+                Tujuan: iasgelarsampurna@gmail.com`);
+
+            // Tampilkan pesan sukses kepada pengguna
+            emailMessage.textContent = 'Skor Anda telah berhasil disimulasikan untuk dikirim! Cek konsol browser untuk detailnya. Untuk fungsi pengiriman email yang sebenarnya, Anda memerlukan server backend.';
+            emailMessage.classList.add('text-green-400');
+        }
+    </script>
+</body>
+</html>
